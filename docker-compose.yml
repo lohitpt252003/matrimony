@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: matrimony-db
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: matrimony
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    container_name: matrimony-backend
+    restart: always
+    environment:
+      DATABASE_URL: postgresql://user:password@db:5432/matrimony
+      SECRET_KEY: "your-secret-key-change-this-in-production"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: matrimony-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - WDS_SOCKET_PORT=0
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
