@@ -1,0 +1,30 @@
+/* SignupPage Mobile Light Theme */
+@media (max-width: 768px) {
+  .signup-container {
+    padding: 20px;
+  }
+
+  .signup-card {
+    max-width: 100%;
+  }
+
+  .signup-title {
+    font-size: 1.3rem;
+  }
+
+  .signup-form {
+    grid-template-columns: 1fr;
+  }
+
+  .signup-textarea {
+    grid-column: span 1;
+  }
+
+  .signup-button {
+    grid-column: span 1;
+  }
+
+  .signup-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

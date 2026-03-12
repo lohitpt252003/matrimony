@@ -1,0 +1,37 @@
+/* Button Dark Theme */
+:root[data-theme="dark"] .btn-primary {
+  background-color: #ff6b9d;
+  color: white;
+}
+
+:root[data-theme="dark"] .btn-primary:hover:not(:disabled) {
+  background-color: #ff84b0;
+  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.5);
+}
+
+:root[data-theme="dark"] .btn-secondary {
+  background-color: #495057;
+  color: white;
+}
+
+:root[data-theme="dark"] .btn-secondary:hover:not(:disabled) {
+  background-color: #545d69;
+}
+
+:root[data-theme="dark"] .btn-success {
+  background-color: #51cf66;
+  color: #1a1a1a;
+}
+
+:root[data-theme="dark"] .btn-success:hover:not(:disabled) {
+  background-color: #65e8a0;
+}
+
+:root[data-theme="dark"] .btn-danger {
+  background-color: #ff6b6b;
+  color: white;
+}
+
+:root[data-theme="dark"] .btn-danger:hover:not(:disabled) {
+  background-color: #ff8585;
+}

@@ -1,0 +1,37 @@
+/* HomePage Mobile Light Theme */
+@media (max-width: 768px) {
+  .home-nav {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .home-title {
+    font-size: 1.5rem;
+  }
+
+  .home-nav-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-login-btn {
+    margin-right: 0;
+  }
+
+  .home-nav-actions .btn {
+    width: 100%;
+  }
+
+  .home-hero-title {
+    font-size: 1.8rem;
+  }
+
+  .home-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .home-profiles-grid {
+    grid-template-columns: 1fr;
+  }
+}

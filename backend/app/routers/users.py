@@ -32,8 +32,8 @@ def read_users_me(current_user: models.user.User = Depends(get_current_user)):
     return current_user
 
 @router.get("/", response_model=List[schemas.user.UserResponse])
-def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(database.get_db)):
-    users = db.query(models.user.User).offset(skip).limit(limit).all()
+def read_users(skip: int = 0, limit: int = 10, current_user: models.user.User = Depends(get_current_user), db: Session = Depends(database.get_db)):
+    users = db.query(models.user.User).filter(models.user.User.id != current_user.id).offset(skip).limit(limit).all()
     return users
 
 @router.get("/{user_id}", response_model=schemas.user.UserResponse)

@@ -1,0 +1,20 @@
+/* LoginPage Mobile Dark Theme */
+@media (max-width: 768px) {
+  :root[data-theme="dark"] .login-container {
+    height: auto;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  :root[data-theme="dark"] .login-card {
+    max-width: 100%;
+  }
+
+  :root[data-theme="dark"] .login-title {
+    font-size: 1.3rem;
+  }
+
+  :root[data-theme="dark"] .login-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

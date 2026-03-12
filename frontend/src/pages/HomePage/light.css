@@ -1,0 +1,20 @@
+/* HomePage Light Theme */
+.home-title {
+  color: var(--accent-color);
+}
+
+.home-hero-subtitle {
+  color: #666;
+}
+
+.home-profile-details {
+  color: #333;
+}
+
+.home-profile-bio {
+  color: #666;
+}
+
+.home-profile-image {
+  background-color: #eee;
+}

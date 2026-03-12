@@ -1,0 +1,17 @@
+/* Button Mobile Dark Theme */
+@media (max-width: 768px) {
+  :root[data-theme="dark"] .btn {
+    padding: 12px 12px;
+    font-size: 1rem;
+  }
+
+  :root[data-theme="dark"] .btn-small {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  :root[data-theme="dark"] .btn-large {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}

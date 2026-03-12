@@ -2,23 +2,27 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
-const LoginPage: React.FC = () => {
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+
+const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     
     const formData = new FormData();
     formData.append('username', username);
     formData.append('password', password);
 
     try {
-      const res = await fetch('http://localhost:8000/auth/login', {
+      const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         body: formData,
       });
@@ -33,6 +37,8 @@ const LoginPage: React.FC = () => {
       }
     } catch (err) {
       setError('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,6 +55,7 @@ const LoginPage: React.FC = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            disabled={loading}
           />
           <input
             className="input-field"
@@ -57,8 +64,11 @@ const LoginPage: React.FC = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={loading}
           />
-          <button className="btn btn-primary" type="submit" style={{ width: '100%' }}>Login</button>
+          <button className="btn btn-primary" type="submit" style={{ width: '100%' }} disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
         </form>
         <p style={{ marginTop: '20px', textAlign: 'center' }}>
           Don't have an account? <Link to="/signup" style={{ color: 'var(--accent-color)' }}>Sign up</Link>

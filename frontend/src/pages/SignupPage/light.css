@@ -1,0 +1,23 @@
+/* SignupPage Light Theme */
+.signup-input {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #333;
+}
+
+.signup-input::placeholder {
+  color: #999;
+}
+
+.signup-select {
+  background-color: #fff;
+  color: #333;
+}
+
+.signup-link {
+  color: var(--accent-color);
+}
+
+.signup-footer {
+  color: #666;
+}

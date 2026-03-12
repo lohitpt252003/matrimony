@@ -1,0 +1,18 @@
+/* LoginPage Light Theme */
+.login-input {
+  border-color: #ddd;
+  background-color: #fff;
+  color: #333;
+}
+
+.login-input::placeholder {
+  color: #999;
+}
+
+.login-link {
+  color: var(--accent-color);
+}
+
+.login-footer {
+  color: #666;
+}

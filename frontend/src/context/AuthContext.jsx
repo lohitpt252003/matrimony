@@ -1,23 +1,17 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-interface AuthContextType {
-  user: any;
-  token: string | null;
-  login: (token: string) => void;
-  logout: () => void;
-  isLoading: boolean;
-}
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext(undefined);
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<any>(null);
-  const [token, setToken] = useState<string | null>(localStorage.getItem('token'));
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('token'));
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (token) {
-      fetch('http://localhost:8000/users/me', {
+      fetch(`${API_URL}/users/me`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -34,9 +28,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } else {
       setIsLoading(false);
     }
-  }, [token]);
+  }, [token, logout]);
 
-  const login = (newToken: string) => {
+  const login = (newToken) => {
     localStorage.setItem('token', newToken);
     setToken(newToken);
   };

@@ -1,0 +1,37 @@
+/* HomePage Mobile Dark Theme */
+@media (max-width: 768px) {
+  :root[data-theme="dark"] .home-nav {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  :root[data-theme="dark"] .home-title {
+    font-size: 1.5rem;
+  }
+
+  :root[data-theme="dark"] .home-nav-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  :root[data-theme="dark"] .home-login-btn {
+    margin-right: 0;
+  }
+
+  :root[data-theme="dark"] .home-nav-actions .btn {
+    width: 100%;
+  }
+
+  :root[data-theme="dark"] .home-hero-title {
+    font-size: 1.8rem;
+  }
+
+  :root[data-theme="dark"] .home-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  :root[data-theme="dark"] .home-profiles-grid {
+    grid-template-columns: 1fr;
+  }
+}
